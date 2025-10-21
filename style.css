@@ -310,19 +310,41 @@ body{
   color: var(--text);
 }
 
-/* Project detail images grid */
-.project-images{
-  margin-top: 50px;
-  margin-bottom: 50px;
+.project-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr); /* grille fine pour faire des spans */
+  gap: 12px;
+  align-items: start;
 }
 
-.project-images img{
+.project-images img {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: cover;
+}
+
+/* Landscape = 2 images par ligne (chaque image span 3/6) */
+.project-images img.landscape {
+  grid-column: span 3;
+}
+
+/* Portrait = 3 images par ligne (chaque image span 2/6) */
+.project-images img.portrait {
+  grid-column: span 2;
+}
+
+/* Petits écrans : fallback plus simple */
+@media (max-width: 700px) {
+  .project-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project-images img.landscape {
+    grid-column: span 2;
+  }
+  .project-images img.portrait {
+    grid-column: span 1;
+  }
 }
 
 #lightbox {

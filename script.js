@@ -51,3 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
     lightboxImg.src = '';
   });
 });
+
+// Marquer les images comme portrait ou paysage
+(function markOrientations() {
+  const imgs = document.querySelectorAll('.project-images img');
+  imgs.forEach(img => {
+    function applyClass() {
+      if (!img.naturalWidth || !img.naturalHeight) return;
+      const cls = img.naturalWidth >= img.naturalHeight ? 'landscape' : 'portrait';
+      img.classList.add(cls);
+    }
+    if (img.complete) {
+      applyClass();
+    } else {
+      img.addEventListener('load', applyClass);
+    }
+  });
+})();
