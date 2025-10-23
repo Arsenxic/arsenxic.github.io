@@ -52,19 +52,59 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Marquer les images comme portrait ou paysage
-(function markOrientations() {
-  const imgs = document.querySelectorAll('.project-images img');
+// ...existing code...
+(function setupImageGrid() {
+  const imgs = Array.from(document.querySelectorAll('.project-images img'));
+
+  // Ajoute classes portrait / landscape selon dimensions
+  function markOrientation(img) {
+    if (!img.naturalWidth || !img.naturalHeight) return;
+    img.classList.toggle('landscape', img.naturalWidth >= img.naturalHeight);
+    img.classList.toggle('portrait', img.naturalWidth < img.naturalHeight);
+  }
+
+  // Quand toutes les images sont chargées (ou au load individuel)
   imgs.forEach(img => {
-    function applyClass() {
-      if (!img.naturalWidth || !img.naturalHeight) return;
-      const cls = img.naturalWidth >= img.naturalHeight ? 'landscape' : 'portrait';
-      img.classList.add(cls);
-    }
     if (img.complete) {
-      applyClass();
+      markOrientation(img);
     } else {
-      img.addEventListener('load', applyClass);
+      img.addEventListener('load', () => markOrientation(img));
     }
   });
+
+  // Après un petit délai (pour s'assurer que orientations sont posées), appliquer règles de paire
+  function applyPairRules() {
+    // clear previous wide flags
+    imgs.forEach(i => i.classList.remove('landscape-wide'));
+
+    for (let i = 0; i < imgs.length - 1; i++) {
+      const cur = imgs[i];
+      const next = imgs[i + 1];
+      if (!cur.classList.contains('landscape') && !cur.classList.contains('portrait')) continue;
+      if (!next.classList.contains('landscape') && !next.classList.contains('portrait')) continue;
+
+      // si paysage suivi d'un portrait => agrandir le paysage
+      if (cur.classList.contains('landscape') && next.classList.contains('portrait')) {
+        cur.classList.add('landscape-wide');
+        i++; // sauter next, on a déjà géré la paire
+        continue;
+      }
+
+      // si portrait suivi d'un paysage => agrandir le paysage (le suivant)
+      if (cur.classList.contains('portrait') && next.classList.contains('landscape')) {
+        next.classList.add('landscape-wide');
+        i++; // sauter next
+        continue;
+      }
+    }
+  }
+
+  // exécuter après petits délais / sur resize (quelques images peuvent charger plus tard)
+  function scheduleApply() {
+    setTimeout(applyPairRules, 120);
+  }
+  scheduleApply();
+  window.addEventListener('load', scheduleApply);
+  window.addEventListener('resize', scheduleApply);
 })();
+// ...existing code...
