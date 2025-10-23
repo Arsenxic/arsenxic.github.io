@@ -341,13 +341,6 @@ body{
   object-fit: cover;
 }
 
-.project-images img.smallgrid {
-  grid-column: 12 / 1; /* occupe toutes les colonnes de la grille */
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
 /* option : garder responsive correct sur petits écrans */
 @media (max-width: 700px) {
   .project-images img.fullwidth { grid-column: 1 / -1; }
