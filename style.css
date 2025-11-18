@@ -1,400 +1,91 @@
-.sidebar-bottom a {
-  color: var(--text);
-  text-decoration: none;
-  transition: color .18s, text-decoration-color .18s;
-}
-.sidebar-bottom a:hover,
-.sidebar-bottom a:focus {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--accent);
-  outline: none;
-}
-/* Aligne les infos de contact en bas de la sidebar */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.sidebar nav {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.menu {
-  flex: 0 0 auto;
-}
-.sidebar-bottom {
-  flex: 0 0 auto;
-  margin-top: auto;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 0.98rem;
-}
-.sidebar-bottom li {
-  margin: 2px 0;
-}
-.collectif-texte p {
-  max-width: 700px;
-  width: 100%;
-}
-/* Bloc description + photo collectif côte à côte */
-.collectif-flexblock {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  margin: 28px 0 32px 0;
-}
-.collectif-texte {
-  flex: 1 1 320px;
-  min-width: 220px;
-}
-.collectif-photo {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: flex-start;
-}
-.collectif-photo img {
-  height: 100%;
-  max-height: none;
-  width: auto;
-  min-width: 120px;
-  max-width: 340px;
-  object-fit: contain;
-  display: block;
-}
-.collectif-flexblock {
-  align-items: stretch;
-}
-@media (max-width: 900px) {
-  .collectif-flexblock {
-    flex-direction: column;
-    gap: 18px;
-  }
-  .collectif-photo img {
-    max-width: 100%;
-    height: auto;
-    max-height: 180px;
-  }
-}
-/* Liste des membres du collectif (liens externes) */
-.external-links {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 24px 0;
-}
-.external-links li {
-  margin-bottom: 6px;
-}
-.external-links a {
-  color: var(--text);
-  text-decoration: none;
-  transition: color .18s, text-decoration-color .18s;
-}
-.external-links a:hover,
-.external-links a:focus {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--accent);
-  outline: none;
-}
-:root{
-  --accent: rgb(0,120,255); /* bleu rvb demandé */
-  --text: #000;
-  --bg: #fff;
-  --sidebar-width: 25vw;
-  --gap-edge: 20px;
-}
-
-/* font-face pour police locale DINdong */
-@font-face{
-  font-family: "DINdong";
-  src: url("assets/fonts/DINdong.woff") format("woff");
-  font-weight: 400 700;
+/* fonts */
+@font-face {
+  font-family: 'DINdong';
+  src:
+    local('DINdong'),
+    url('/assets/fonts/DINdong.woff2') format('woff2'),
+    url('/assets/fonts/DINdong.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* fallback stack : DINdong, Arial (regular for body), Arial bold for headings */
-body{
-  font-family: "DINdong", Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
+/* Réglages de base */
+:root {
+  --accent: #0078ff;
+}
+html, body {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  font-family: "DINdong", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #fff;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout : sidebar fixed right, main left */
-.sidebar{
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: var(--sidebar-width);
-  height: 100vh;
-  background: var(--bg);
-  padding: 40px 20px;
-  box-sizing: border-box;
-  z-index: 50;
-}
-
-/* vertical divider that doesn't touch top/bottom */
-.sidebar .divider{
-  position: absolute;
-  left: calc(-1px); /* position to the left edge of sidebar */
-  top: 20px;
-  bottom: 20px;
-  width: 1px;
-  background: #000;
-}
-
-/* menu list */
-.menu{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.menu .big > a{
-  display: block;
-  font-weight: 700; /* Arial bold fallback if DINdong has weights */
-  margin: 10px 0 8px 0;
-  text-decoration: none;
-  color: var(--text);
-  font-size: 1.05rem;
-  line-height: 2;
-}
-
-/* sublinks */
-.sublinks{
-  list-style: none;
-  padding-left: 18px; /* retrait sur la droite visuel */
-  margin: 6px 0 12px 0;
-}
-
-.sublinks a{
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.92rem;
-  display: inline-block;
-  transition: color .18s, text-decoration-color .18s;
-}
-
-/* Hover effect: underline + color bleu RVB on hover */
-.menu a:hover,
-.menu a:focus{
+/* utilitaires */
+.menu-highlight {
   color: var(--accent);
   text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  outline: none;
 }
 
-/* Main content area to the left */
-.main{
-  margin-right: var(--sidebar-width);
-  padding: 40px var(--gap-edge) 80px var(--gap-edge);
-  box-sizing: border-box;
+/* layout minimal pour la page bio */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-/* Page header: title top-left */
-.page-header h1{
-  margin: 0 0 20px 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: left;
-}
-
-/* Projects list / news */
-.news-list .project{
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 20px 0;
-}
-
-.interpretes-list {
-  margin-left: 1em;
-  list-style: none;
-  padding-left: 0;    /* Ajouté : enlève le retrait par défaut */
-}
-
-.project-img{
-  width: 240px;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  border-radius: 6px;
-}
-
-/* project content */
-.project-content{
-  flex: 1;
-}
-
-.project-title{
-  margin: 0 0 8px 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.project-title a{
-  color: var(--text);
-  text-decoration: none;
-}
-
-.project-title a:hover{ color: var(--accent); text-decoration: underline; }
-
-.project-excerpt{
-  margin: 0;
-  color: var(--text);
-}
-
-/* separator line that doesn't go to screen edges; stops at 20px (gap-edge) */
-.section-sep{
-  border: none;
-  border-top: 1px solid #000;
-  margin: 0 calc(var(--gap-edge)) 0 calc(var(--gap-edge));
-}
-
-/* Gallery grid (mandats / travaux) */
-.gallery-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  align-items: start;
-  grid-auto-rows: auto;
-}
-
-.gallery-grid:only-child,
-.gallery-grid:has(.gallery-item:only-child) {
-  justify-content: left;
-}
-
-.gallery-grid .gallery-item:only-child {
-  max-width: 350px;   /* largeur maximale souhaitée */
-  margin: 0;
-  width: 100%;
-}
-
-.gallery-item{
-  text-decoration: none;
-  display: block;
-  overflow: hidden;
-}
-
-.gallery-item img{
-  width: 100%;
-  height: 450px;
-  display: block;
-  object-fit: cover;
-}
-
-.img-center { object-position: center center; }
-.img-top    { object-position: top center; }
-.img-bottom { object-position: bottom center; }
-.img-right  { object-position: right center; }
-.img-left   { object-position: left center; } 
-
-.gallery-item h3{
-  margin: 8px 0 0 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.project-images {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* grille fine pour faire des spans */
-  gap: 12px;
-  align-items: start;
-}
-
+/* project images / lightbox */
 .project-images img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-}
-
-/* Landscape = 2 images par ligne (chaque image span 3/6) */
-.project-images img.landscape {
-  grid-column: span 3;
-}
-
-/* Portrait = 3 images par ligne (chaque image span 2/6) */
-.project-images img.portrait {
-  grid-column: span 2;
-}
-
-.project-images img.fullwidth {
-  grid-column: 1 / -1; /* occupe toutes les colonnes de la grille */
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* option : garder responsive correct sur petits écrans */
-@media (max-width: 700px) {
-  .project-images img.fullwidth { grid-column: 1 / -1; }
-}
-
-/* Petits écrans : fallback plus simple */
-@media (max-width: 700px) {
-  .project-images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .project-images img.landscape {
-    grid-column: span 2;
-  }
-  .project-images img.portrait {
-    grid-column: span 1;
-  }
+  cursor: zoom-in;
 }
 
 #lightbox {
-  display: none;
   position: fixed;
-  z-index: 1000;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.85);
+  inset: 0;
+  display: none;
   align-items: center;
   justify-content: center;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
 }
+
 #lightbox img {
-  max-width: 90vw;
-  max-height: 90vh;
-  box-shadow: 0 0 40px #000;
+  max-width: 95%;
+  max-height: 95%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* credits list (tiny bullet points) */
-.credits{
-  list-style: disc;
-  margin-left: 18px;
-  color: var(--text);
-  font-size: 0.95rem;
+/* portrait / landscape classes */
+.project-images img.portrait {
+  width: auto;
+  max-height: 70vh;
 }
 
-/* Responsive: on small screens, sidebar becomes top fixed bar */
-@media (max-width: 900px){
-  :root{ --sidebar-width: 100%; }
-  .sidebar{
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 12px;
-    border-bottom: 1px solid #000;
-  }
-  .sidebar .divider{ display: none; }
-  .main{ margin-right: 0; padding-top: 10px; }
-  .project-img{ width: 140px; }
-  .gallery-item img{ height: 160px; }
+.project-images img.landscape {
+  width: 100%;
+  height: auto;
 }
+
+/* petites corrections responsive */
+.collectif-flexblock {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.collectif-texte {
+  flex: 1 1 300px;
+}
+
+.collectif-photo {
+  flex: 0 0 300px;
+}
+
+/* fin du fichier CSS */

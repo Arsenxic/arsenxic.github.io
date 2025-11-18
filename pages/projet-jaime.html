@@ -6,7 +6,7 @@
   <title>J'aime - Arsen Aeby</title>
     <meta property="og:title" content="Arsen Aeby - J'aime">
   <meta property="og:description" content="J'aime, une création de costumes d'Arsen Aeby.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,51 +23,7 @@
 </script>
 </head>
 <body>
-  <aside class="sidebar" id="sidebar">
-    <nav>
-      <ul class="menu">
-        <li class="menu-item big"><a href="index.html">Accueil</a></li>
-
-        <li class="menu-item big">
-          <a href="mandats.html">Mandats</a>
-          <ul class="sublinks">
-            <li><a href="projet-urpupils.html" data-project-link="projet-urpupils">Ur Pupils R Nothing But Ur Pupils - Oscar Damianaki</a></li>
-            <li><a href="projet-coeurcolere.html" data-project-link="projet-coeurcolere">CoeurColère - Olivia Csiky Trnka</a></li>
-            <li><a href="projet-mer.html" data-project-link="projet-mer">Mer - Yan Hermenjat</a></li>
-            <li><a href="projet-jaime.html" data-project-link="projet-jaime">J'aime - Compagnie à Trois Temps</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item big">
-          <a href="travaux-personnels.html">Travaux personnels</a>
-          <ul class="sublinks">
-            <li><a href="projet-artificial-bloom.html" data-project-link="projet-artificial-bloom">Artificial Bloom</a></li>
-            <li><a href="projet-acte1.html" data-project-link="projet-acte1">Acte 1: Les animal·es</a></li>
-            <li><a href="projet-sissy.html" data-project-link="projet-sissy">The Sissy - My favourite queer flower</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item big">
-          <a href="collectif-mfg.html">Collectif MFG</a>
-          <ul class="sublinks">
-            <li><a href="projet-micro-ramures.html" data-project-link="projet-micro-ramures">Micro-ramures / Micro-armures</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item big"><a href="bio.html">Bio</a></li>
-      </ul>
-      <ul class="sidebar-bottom">
-        <li>Contact</li>
-        <li>Arsen Aeby [il/lui]</li>
-        <li>Costume designer</li>
-        <li><a href="https://www.instagram.com/arsenxic/">@arsenxic</a></li>
-        <li>costumes@arsenaeby.com</li>
-        <li><em>Genève</em></li>
-      </ul>
-    </nav>
-    <!-- trait vertical séparateur qui s'arrête un peu en haut et bas -->
-    <div class="divider" aria-hidden="true"></div>
-  </aside>
+  <div id="sidebar-placeholder"></div>
 
   <main class="main">
     <header class="page-header">
@@ -96,15 +52,15 @@
 
       <div class="project-images">
         <!-- grille d'images (2-3 colonnes selon largeur) -->
-         <img class="fullwidth" src="assets/images/Croquis_operette.png" alt="image4">
-        <img src="assets/images/IMG_4244.jpeg" alt="image1">
-        <img src="assets/images/IMG_4901.jpeg" alt="image2">
-        <img src="assets/images/IMG_4712.png" alt="image8">
-        <img src="assets/images/IMG_4333.jpeg" alt="image3">
-        <img src="assets/images/IMG_4335.jpeg" alt="image4">
-        <img src="assets/images/IMG_4361.jpeg" alt="image5">
-        <img src="assets/images/IMG_4622.jpeg" alt="image6">
-        <img src="assets/images/IMG_4646.jpeg" alt="image7">
+         <img class="fullwidth" src="/assets/images/Croquis_operette.png" alt="image4">
+        <img src="/assets/images/IMG_4244.jpeg" alt="image1">
+        <img src="/assets/images/IMG_4901.jpeg" alt="image2">
+        <img src="/assets/images/IMG_4712.png" alt="image8">
+        <img src="/assets/images/IMG_4333.jpeg" alt="image3">
+        <img src="/assets/images/IMG_4335.jpeg" alt="image4">
+        <img src="/assets/images/IMG_4361.jpeg" alt="image5">
+        <img src="/assets/images/IMG_4622.jpeg" alt="image6">
+        <img src="/assets/images/IMG_4646.jpeg" alt="image7">
 
 
       </div>
@@ -115,10 +71,8 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
-
-    <div id="lightbox" style="display:none; position:fixed; z-index:1000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
-      <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; box-shadow:0 0 40px #000;">
-    </div>
+  <script src="/assets/js/script.js" defer></script>
+  <script src="/assets/js/load-sidebar.js" defer></script>
+  <div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
 </body>
 </html>

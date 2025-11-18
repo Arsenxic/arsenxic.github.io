@@ -1,0 +1,366 @@
+/* fonts (déplacé en haut) */
+@font-face {
+  font-family: 'DINdong';
+  src:
+    local('DINdong'),
+    url('/assets/fonts/DINdong.woff2') format('woff2'),
+    url('/assets/fonts/DINdong.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* variables globales (déplacées en haut) */
+:root{
+  --accent: rgb(0,120,255); /* bleu rvb demandé */
+  --text: #000;
+  --bg: #fff;
+  --sidebar-width: 25vw;
+  --gap-edge: 20px;
+}
+
+/* RESET global : aucune liste ne doit afficher de bullets ni d'indentation */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajout : liens par défaut en couleur texte, bleu seulement au hover/focus */
+a, a:link, a:visited {
+  color: var(--text);
+  text-decoration: none;
+  transition: color .18s, text-decoration-color .18s;
+}
+
+a:hover, a:focus {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+/* font-face pour police locale DINdong */
+@font-face {
+  font-family: 'DINdong';
+  src:
+    local('DINdong'),
+    url('/assets/fonts/DINdong.woff2') format('woff2'),
+    url('/assets/fonts/DINdong.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* fallback stack : DINdong, Arial (regular for body), Arial bold for headings */
+body{
+  font-family: "DINdong", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Layout : sidebar fixed right, main left */
+.sidebar{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg);
+  padding: 40px 20px;
+  box-sizing: border-box;
+  z-index: 50;
+}
+
+/* vertical divider that doesn't touch top/bottom */
+.sidebar .divider{
+  position: absolute;
+  left: calc(-1px); /* position to the left edge of sidebar */
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: #000;
+}
+
+/* menu list */
+.menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.menu .big > a{
+  display: block;
+  font-weight: 700; /* Arial bold fallback if DINdong has weights */
+  margin: 10px 0 8px 0;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+/* sublinks */
+.sublinks{
+  list-style: none;
+  padding-left: 18px; /* retrait sur la droite visuel */
+  margin: 6px 0 12px 0;
+}
+
+.sublinks a{
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.92rem;
+  display: inline-block;
+  transition: color .18s, text-decoration-color .18s;
+}
+
+/* Hover effect: underline + color bleu RVB on hover */
+.menu a:hover,
+.menu a:focus{
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+/* Main content area to the left */
+.main{
+  margin-right: var(--sidebar-width);
+  padding: 40px var(--gap-edge) 80px var(--gap-edge);
+  box-sizing: border-box;
+}
+
+/* Page header: title top-left */
+.page-header h1{
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Projects list / news */
+.news-list .project{
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.interpretes-list {
+  margin-left: 1em;
+  list-style: none;
+  padding-left: 0;    /* Ajouté : enlève le retrait par défaut */
+}
+
+.project-img{
+  width: 240px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+/* project content */
+.project-content{
+  flex: 1;
+}
+
+.project-title{
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.project-title a{
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-title a:hover{ color: var(--accent); text-decoration: underline; }
+
+.project-excerpt{
+  margin: 0;
+  color: var(--text);
+}
+
+/* separator line that doesn't go to screen edges; stops at 20px (gap-edge) */
+.section-sep{
+  border: none;
+  border-top: 1px solid #000;
+  margin: 0 calc(var(--gap-edge)) 0 calc(var(--gap-edge));
+}
+
+/* Gallery grid (mandats / travaux) */
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  align-items: start;
+  grid-auto-rows: auto;
+}
+
+.gallery-grid:only-child,
+.gallery-grid:has(.gallery-item:only-child) {
+  justify-content: left;
+}
+
+.gallery-grid .gallery-item:only-child {
+  max-width: 350px;   /* largeur maximale souhaitée */
+  margin: 0;
+  width: 100%;
+}
+
+.gallery-item{
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 450px;
+  display: block;
+  object-fit: cover;
+}
+
+.img-center { object-position: center center; }
+.img-top    { object-position: top center; }
+.img-bottom { object-position: bottom center; }
+.img-right  { object-position: right center; }
+.img-left   { object-position: left center; } 
+
+.gallery-item h3{
+  margin: 8px 0 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Consolidation : règles pour la grille d'images (remplace les définitions dupliquées) */
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* grille fine pour faire des spans */
+  gap: 12px;
+  align-items: start;
+}
+
+/* règles pour les images dans la grille (uniques, évitant duplication) */
+.project-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  cursor: zoom-in; /* gardé ici pour cohérence */
+}
+
+/* Landscape = 2 images par ligne (chaque image span 3/6) */
+.project-images img.landscape {
+  grid-column: span 3;
+}
+
+/* Portrait = 3 images par ligne (chaque image span 2/6) */
+.project-images img.portrait {
+  grid-column: span 2;
+}
+
+.project-images img.fullwidth {
+  grid-column: 1 / -1; /* occupe toutes les colonnes de la grille */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* responsive adjustments (consolidés) */
+@media (max-width: 700px) {
+  .project-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project-images img.landscape {
+    grid-column: span 2;
+  }
+  .project-images img.portrait {
+    grid-column: span 1;
+  }
+}
+
+/* Consolidation : lightbox (une seule définition) */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 0 40px #000;
+}
+
+/* credits list (tiny bullet points) -- adapté pour ne plus afficher de puce */
+.credits{
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* Responsive: on small screens, sidebar becomes top fixed bar */
+@media (max-width: 900px){
+  :root{ --sidebar-width: 100%; }
+  .sidebar{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    border-bottom: 1px solid #000;
+  }
+  .sidebar .divider{ display: none; }
+  .main{ margin-right: 0; padding-top: 10px; }
+  .project-img{ width: 140px; }
+  .gallery-item img{ height: 160px; }
+}
+
+/* Ajustement spécifique : image du bloc collectif (plus petite et alignée à droite) */
+.collectif-photo {
+  display: flex;
+  justify-content: flex-end; /* aligne l'image à droite du bloc */
+  align-items: flex-start;
+  /* optionnel : limiter l'espace occupé par le bloc */
+  flex: 0 0 260px;
+  box-sizing: border-box;
+}
+
+.collectif-photo img,
+.collectif-photo-img {
+  max-width: 100%;
+  width: 100%;
+  max-width: 350px; /* taille max sur écrans larges */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Responsive : sur petits écrans, image plus grande et alignée en haut/gauche */
+@media (max-width: 900px) {
+  .collectif-photo {
+    justify-content: flex-start;
+    flex: 0 0 auto;
+  }
+  .collectif-photo img,
+  .collectif-photo-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+  }
+}
