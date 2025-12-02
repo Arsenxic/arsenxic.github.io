@@ -344,11 +344,17 @@ body{
 .collectif-photo img,
 .collectif-photo-img {
   max-width: 100%;
-  width: 100%;
   max-width: 350px; /* taille max sur écrans larges */
   height: auto;
   object-fit: contain;
   display: block;
+}
+
+.collectif-flexblock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px; /* espace entre texte et image */
 }
 
 /* Responsive : sur petits écrans, image plus grande et alignée en haut/gauche */
