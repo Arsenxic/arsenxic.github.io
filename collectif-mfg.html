@@ -27,13 +27,13 @@
 
   <main class="main">
     <header class="page-header">
-      <h1>MyFavouriteGear</h1>
+      <h1 data-i18n="collective-title"></h1>
     </header>
 
     
     <div class="collectif-flexblock">
       <div class="collectif-texte">
-        <p>MyFavouriteGear est un collectif de sept artistes basé à Genève qui s’est réunis autour de pratiques performatives et sonores. Iels explorent des possibilités de fictions et d’esthétiques autour de corps encostumés, prosthétiques et fusionnés aux objets.</p>
+        <p data-i18n-html="collectif-description">MyFavouriteGear est un collectif de sept artistes basé à Genève qui s'est réunis autour de pratiques performatives et sonores. Iels explorent des possibilités de fictions et d’esthétiques autour de corps encostumés, prosthétiques et fusionnés aux objets.</p>
         <ul class="external-links">
           <li><a href="https://www.instagram.com/sebbbebe" target="_blank" rel="noopener">Sebée Roussi</a></li>
           <li><a href="https://www.instagram.com/eo_chgt" target="_blank" rel="noopener">Emma Chataigné</a></li>
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <h3>Projets</h3>
+    <h3 data-i18n="projets-title">Projets</h3>
 
     <section class="gallery-grid">
   <a class="gallery-item" href="projet-micro-ramures.html" data-menu-target="projet-micro-ramures">
@@ -60,6 +60,7 @@
   </main>
 
   <!-- charger script.js (définit window.initInteractions) puis load-sidebar.js -->
+  <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/script.js" defer></script>
   <script src="/assets/js/load-sidebar.js" defer></script>
 

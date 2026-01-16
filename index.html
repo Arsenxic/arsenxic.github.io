@@ -29,7 +29,7 @@
   <!-- Contenu principal -->
   <main class="main">
     <header class="page-header">
-      <h1>Actualités</h1>
+      <h1 data-i18n="news-title">Actualités</h1>
     </header>
 
     <section class="news-list">
@@ -39,8 +39,8 @@
           <img src="/assets/images/Arsen Diplome0205.webp" alt="Artificial Bloom — vignette" class="project-img">
         </a>
         <div class="project-content">
-          <h2 class="project-title"><a href="projet-artificial-bloom.html" data-menu-target="projet-artificial-bloom">Défilé HEAD 2025</a></h2>
-          <p class="project-excerpt">Projet de diplome au défilé HEAD - Genève 2025<br><ul class="external-links"><li><a href="https://www.defile-head.ch/2025/" target="_blank" rel="noopener"><em>Vidéo</em></a></li></ul></p>
+          <h2 class="project-title"><a href="projet-artificial-bloom.html" data-menu-target="projet-artificial-bloom" data-i18n="head-2025">Défilé HEAD 2025</a></h2>
+          <p class="project-excerpt" data-i18n-html="project-diploma">Projet de diplome au défilé HEAD - Genève 2025<br><ul class="external-links"><li><a href="https://www.defile-head.ch/2025/" target="_blank" rel="noopener"><em data-i18n="video">Vidéo</em></a></li></ul></p>
         </div>
       </article>
 
@@ -53,7 +53,7 @@
         </a>
         <div class="project-content">
           <h2 class="project-title"><a href="projet-micro-ramures.html" data-menu-target="projet-micro-ramures">MyVeryFavouriteGear</a></h2>
-          <p class="project-excerpt">Collectif MFG <br> Représentations du 26 au 29 novembre 2025 à Sévelin 36.<br><a href="projet-micro-ramures.html" data-project-link="projet-micro-ramures"><em>Les premières images</em></a></p>
+          <p class="project-excerpt" data-i18n-html="project-micro">Collectif MFG <br> Représentations du 26 au 29 novembre 2025 à Sévelin 36.<br><a href="projet-micro-ramures.html" data-project-link="projet-micro-ramures"><em data-i18n="first-images">Les premières images</em></a></p>
         </div>
       </article>
 
@@ -64,6 +64,7 @@
   </main>
 
   <!-- charger script.js (définit window.initInteractions) puis load-sidebar.js -->
+  <script src="/assets/js/i18n.js" defer></script>
   <script src="/assets/js/script.js" defer></script>
   <script src="/assets/js/load-sidebar.js" defer></script>
 

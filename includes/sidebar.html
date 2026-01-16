@@ -1,11 +1,15 @@
  <!-- Sidebar / menu fixe à droite -->
   <aside class="sidebar" id="sidebar">
     <nav>
+      <div class="language-switcher">
+        <button id="lang-fr" class="lang-btn" onclick="applyLanguage('fr')">FR</button>
+        <button id="lang-en" class="lang-btn" onclick="applyLanguage('en')">EN</button>
+      </div>
       <ul class="menu">
-        <li class="menu-item big"><a href="index.html">Accueil</a></li>
+        <li class="menu-item big"><a href="index.html" data-i18n="home">Accueil</a></li>
 
         <li class="menu-item big">
-          <a href="mandats.html">Mandats</a>
+          <a href="mandats.html" data-i18n="mandats">Mandats</a>
           <ul class="sublinks">
             <li><a href="projet-urpupils.html" data-project-link="projet-urpupils">Ur Pupils R Nothing But Ur Pupils - Oscar Damianaki</a></li>
             <li><a href="projet-coeurcolere.html" data-project-link="projet-coeurcolere">CoeurColère - Olivia Csiky Trnka</a></li>
@@ -15,7 +19,7 @@
         </li>
 
         <li class="menu-item big">
-          <a href="travaux-personnels.html">Travaux personnels</a>
+          <a href="travaux-personnels.html" data-i18n="personal-work">Travaux personnels</a>
           <ul class="sublinks">
             <li><a href="projet-artificial-bloom.html" data-project-link="projet-artificial-bloom">Artificial Bloom</a></li>
             <li><a href="projet-acte1.html" data-project-link="projet-acte1">Acte 1: Les animal·es</a></li>
@@ -24,21 +28,21 @@
         </li>
 
         <li class="menu-item big">
-          <a href="collectif-mfg.html">Collectif MFG</a>
+          <a href="collectif-mfg.html" data-i18n="collective">Collectif MFG</a>
           <ul class="sublinks">
             <li><a href="projet-micro-ramures.html" data-project-link="projet-micro-ramures">MyVeryFavouriteGear</a></li>
           </ul>
         </li>
 
-        <li class="menu-item big"><a href="bio.html">Bio</a></li>
+        <li class="menu-item big"><a href="bio.html" data-i18n="bio">Bio</a></li>
         </ul>
       <ul class="sidebar-bottom">
-        <li>Contact</li>
-        <li>Arsen Aeby [il/lui]</li>
-        <li>Costume designer</li>
+        <li data-i18n="contact">Contact</li>
+        <li data-i18n="name">Arsen Aeby [il/lui]</li>
+        <li data-i18n="job-title">Costume designer</li>
         <li><a href="https://www.instagram.com/arsenxic/">@arsenxic</a></li>
         <li>costumes@arsenaeby.com</li>
-        <li><em>Genève</em></li>
+        <li><em data-i18n="location">Genève</em></li>
       </ul>
     </nav>
 
