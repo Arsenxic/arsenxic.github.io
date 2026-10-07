@@ -203,6 +203,28 @@ body{
   border-radius: 6px;
 }
 
+.project-visual{
+  width: 240px;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.8);
+  background: linear-gradient(135deg, #f3f3f3 0%, #dfe5ea 100%);
+  box-sizing: border-box;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.project-visual--stone { background: linear-gradient(135deg, #f2eee9 0%, #d9d0c4 100%); }
+.project-visual--rose { background: linear-gradient(135deg, #f7e7ea 0%, #d8c0c7 100%); }
+.project-visual--sage { background: linear-gradient(135deg, #eaf0ea 0%, #cfd8cf 100%); }
+.project-visual--earth { background: linear-gradient(135deg, #efe7dc 0%, #d7c7b1 100%); }
+
 /* project content */
 .project-content{
   flex: 1;
@@ -285,6 +307,11 @@ body{
   grid-template-columns: repeat(6, 1fr); /* grille fine pour faire des spans */
   gap: 12px;
   align-items: start;
+}
+
+.project-description + .project-images,
+.project-detail > .project-images {
+  margin-top: 20px;
 }
 
 /* règles pour les images dans la grille (uniques, évitant duplication) */
